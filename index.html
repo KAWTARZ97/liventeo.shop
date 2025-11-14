@@ -1,0 +1,1070 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>SCI VERNEY RAINARD - Immobilier d'entreprise à Limas</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="SCI VERNEY RAINARD - Location et gestion de bureaux et locaux professionnels à Limas, Auvergne Rhône-Alpes.">
+
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-main: #05070f;
+      --bg-card: #080d1c;
+      --accent-blue: #1f8dff;
+      --accent-teal: #14c2a3;
+      --accent-soft-blue: rgba(31, 141, 255, 0.26);
+      --accent-soft-teal: rgba(20, 194, 163, 0.24);
+      --text-main: #f7fbff;
+      --text-muted: #b3bfd4;
+      --border-soft: rgba(255,255,255,0.12);
+      --shadow-strong: 0 18px 40px rgba(0,0,0,0.9);
+      --radius-xl: 1.6rem;
+      --transition-fast: 0.25s ease-out;
+    }
+
+    * { margin:0; padding:0; box-sizing:border-box; }
+
+    body {
+      font-family: "DM Sans", system-ui, sans-serif;
+      background:
+        radial-gradient(circle at top, #14274b 0, #05070f 55%, #000000 100%);
+      color: var(--text-main);
+      min-height: 100vh;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
+
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #020309; }
+    ::-webkit-scrollbar-thumb {
+      background: linear-gradient(to bottom, var(--accent-blue), var(--accent-teal));
+      border-radius: 999px;
+    }
+
+    .page-wrapper { min-height:100vh; isolation:isolate; position:relative; }
+
+    .bg-glow {
+      position:fixed; inset:0; z-index:-2;
+      background-image:
+        radial-gradient(circle at 8% 0%, rgba(31,141,255,0.42), transparent 55%),
+        radial-gradient(circle at 95% 100%, rgba(20,194,163,0.4), transparent 55%),
+        linear-gradient(to bottom, #040615 30%, #000000 100%);
+      opacity:.96;
+    }
+
+    .bg-noise {
+      position:fixed; inset:0; z-index:-1;
+      background-image:
+        radial-gradient(circle at 100% 0%, rgba(255,255,255,0.06), transparent 60%),
+        radial-gradient(circle at 0 100%, rgba(7,12,32,0.9), transparent 60%);
+      mix-blend-mode:screen;
+      opacity:.7;
+    }
+
+    .max-width {
+      max-width:1120px;
+      margin:0 auto;
+      padding:0 1.6rem;
+    }
+
+    /* HEADER */
+    header {
+      position:sticky;
+      top:0;
+      z-index:50;
+      backdrop-filter:blur(20px);
+      background:linear-gradient(to bottom, rgba(4,7,18,0.96), transparent);
+      border-bottom:1px solid rgba(255,255,255,0.08);
+    }
+
+    .nav {
+      padding:1rem 0;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:1rem;
+    }
+
+    .nav-brand {
+      display:flex;
+      align-items:center;
+      gap:.8rem;
+    }
+
+    .nav-logo {
+      width:44px; height:44px;
+      border-radius:999px;
+      background:
+        radial-gradient(circle at 0 0, var(--accent-blue), transparent 55%),
+        radial-gradient(circle at 100% 100%, var(--accent-teal), transparent 60%);
+      display:flex; align-items:center; justify-content:center;
+      box-shadow:
+        0 0 0 2px rgba(255,255,255,0.12),
+        0 14px 32px rgba(0,0,0,0.85);
+    }
+
+    .nav-logo span {
+      font-family:"Space Grotesk", sans-serif;
+      font-weight:700;
+      font-size:1.2rem;
+      letter-spacing:0.08em;
+    }
+
+    .nav-text { display:flex; flex-direction:column; gap:.1rem; }
+
+    .nav-title {
+      font-family:"Space Grotesk", sans-serif;
+      font-size:1.1rem;
+      letter-spacing:0.14em;
+      text-transform:uppercase;
+    }
+
+    .nav-subtitle {
+      font-size:.72rem;
+      text-transform:uppercase;
+      letter-spacing:0.16em;
+      color:var(--text-muted);
+    }
+
+    .nav-links {
+      display:flex;
+      align-items:center;
+      gap:1.4rem;
+      font-size:.86rem;
+    }
+
+    .nav-links a {
+      color:var(--text-muted);
+      text-decoration:none;
+      position:relative;
+      padding-bottom:3px;
+      transition:color var(--transition-fast);
+    }
+
+    .nav-links a::after {
+      content:"";
+      position:absolute;
+      left:0; bottom:0;
+      width:0; height:2px;
+      border-radius:999px;
+      background:linear-gradient(to right,var(--accent-blue),var(--accent-teal));
+      transition:width var(--transition-fast);
+    }
+
+    .nav-links a:hover { color:var(--text-main); }
+    .nav-links a:hover::after { width:100%; }
+
+    .nav-cta {
+      font-size:.75rem;
+      text-transform:uppercase;
+      letter-spacing:0.18em;
+      border-radius:999px;
+      padding:.45rem 1.25rem;
+      border:1px solid rgba(255,255,255,0.22);
+      background:linear-gradient(135deg, rgba(31,141,255,0.24), rgba(20,194,163,0.24));
+      color:var(--text-main);
+      cursor:pointer;
+      display:inline-flex;
+      align-items:center;
+      gap:.45rem;
+      transition:
+        background var(--transition-fast),
+        transform var(--transition-fast),
+        box-shadow var(--transition-fast),
+        border-color var(--transition-fast);
+    }
+
+    .nav-cta span { font-size:1.1rem; }
+
+    .nav-cta:hover {
+      background:linear-gradient(135deg,var(--accent-blue),var(--accent-teal));
+      border-color:transparent;
+      transform:translateY(-1px);
+      box-shadow:0 16px 32px rgba(0,0,0,0.9);
+    }
+
+    /* HERO */
+    .hero { padding:3.2rem 0 3.7rem; }
+
+    .hero-grid {
+      display:grid;
+      grid-template-columns:minmax(0,3.1fr) minmax(0,2.5fr);
+      gap:3.2rem;
+      align-items:center;
+    }
+
+    .eyebrow {
+      display:inline-flex;
+      align-items:center;
+      gap:.55rem;
+      padding:.35rem .9rem;
+      border-radius:999px;
+      background:rgba(4,9,26,0.94);
+      border:1px solid rgba(255,255,255,0.18);
+      font-size:.7rem;
+      text-transform:uppercase;
+      letter-spacing:0.18em;
+      color:var(--text-muted);
+      margin-bottom:1.1rem;
+    }
+
+    .eyebrow-dot {
+      width:8px; height:8px;
+      border-radius:999px;
+      background:radial-gradient(circle,var(--accent-blue),var(--accent-teal));
+      box-shadow:0 0 14px rgba(31,141,255,0.9);
+    }
+
+    .hero-title {
+      font-family:"Space Grotesk", sans-serif;
+      font-size:clamp(2.5rem,4vw,3.3rem);
+      line-height:1.05;
+      margin-bottom:1rem;
+      letter-spacing:0.02em;
+      text-shadow:0 18px 40px rgba(0,0,0,0.96);
+    }
+
+    .hero-title span.highlight {
+      background:linear-gradient(120deg,var(--accent-blue),var(--accent-teal));
+      -webkit-background-clip:text;
+      background-clip:text;
+      color:transparent;
+    }
+
+    .hero-subtitle {
+      font-size:.98rem;
+      color:var(--text-muted);
+      max-width:33rem;
+      line-height:1.7;
+      margin-bottom:1.8rem;
+    }
+
+    .hero-tags {
+      display:flex;
+      flex-wrap:wrap;
+      gap:.55rem;
+      margin-bottom:2rem;
+    }
+
+    .tag-pill {
+      font-size:.78rem;
+      padding:.45rem .95rem;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,0.16);
+      background:radial-gradient(circle at top left,var(--accent-soft-blue),transparent 70%);
+      color:var(--text-muted);
+      display:inline-flex;
+      align-items:center;
+      gap:.45rem;
+    }
+
+    .tag-pill span.dot {
+      width:6px; height:6px;
+      border-radius:999px;
+      background:var(--accent-teal);
+    }
+
+    .hero-actions {
+      display:flex;
+      flex-wrap:wrap;
+      gap:.95rem;
+      align-items:center;
+      margin-bottom:1.6rem;
+    }
+
+    .btn-primary,
+    .btn-ghost {
+      border-radius:999px;
+      padding:.75rem 1.7rem;
+      cursor:pointer;
+      font-size:.82rem;
+      text-transform:uppercase;
+      letter-spacing:0.18em;
+      border:1px solid transparent;
+      display:inline-flex;
+      align-items:center;
+      gap:.6rem;
+      transition:
+        transform var(--transition-fast),
+        box-shadow var(--transition-fast),
+        background var(--transition-fast),
+        border-color var(--transition-fast),
+        color var(--transition-fast);
+    }
+
+    .btn-primary {
+      background:linear-gradient(135deg,var(--accent-blue),var(--accent-teal));
+      color:#021021;
+      box-shadow:0 18px 32px rgba(0,0,0,0.9);
+    }
+
+    .btn-primary:hover {
+      transform:translateY(-2px) scale(1.01);
+      box-shadow:0 24px 44px rgba(0,0,0,1);
+    }
+
+    .btn-ghost {
+      border-color:rgba(255,255,255,0.24);
+      background:rgba(4,8,22,0.96);
+      color:var(--text-main);
+    }
+
+    .btn-ghost:hover {
+      background:rgba(4,8,22,1);
+      border-color:rgba(20,194,163,0.9);
+      transform:translateY(-1px);
+    }
+
+    .btn-icon { font-size:1.1rem; transform:translateY(1px); }
+
+    .hero-meta {
+      display:flex;
+      flex-wrap:wrap;
+      gap:2.2rem;
+      font-size:.8rem;
+      color:var(--text-muted);
+    }
+
+    .meta-block { display:flex; flex-direction:column; gap:.25rem; }
+
+    .meta-label {
+      font-size:.7rem;
+      text-transform:uppercase;
+      letter-spacing:0.18em;
+      color:rgba(207,218,240,0.9);
+    }
+
+    .meta-value { font-size:.9rem; }
+
+    .meta-value a {
+      color:var(--accent-teal);
+      text-decoration:none;
+    }
+
+    .meta-value a:hover { text-decoration:underline; }
+
+    /* HERO VISUAL */
+    .hero-visual { position:relative; }
+
+    .hero-card {
+      border-radius:var(--radius-xl);
+      background:radial-gradient(circle at top, rgba(255,255,255,0.08), rgba(5,11,26,0.98));
+      padding:1.2rem 1.1rem 1.3rem;
+      border:1px solid var(--border-soft);
+      box-shadow:var(--shadow-strong);
+      overflow:hidden;
+      position:relative;
+      backdrop-filter:blur(18px);
+    }
+
+    .hero-card::before {
+      content:"";
+      position:absolute; inset:-45%;
+      background:
+        radial-gradient(circle at 0 0, rgba(31,141,255,0.32), transparent 55%),
+        radial-gradient(circle at 100% 100%, rgba(20,194,163,0.32), transparent 55%);
+      opacity:.9;
+      mix-blend-mode:screen;
+      pointer-events:none;
+    }
+
+    .hero-chip {
+      position:absolute;
+      inset:1.1rem 1.1rem auto auto;
+      z-index:2;
+      padding:.3rem .8rem;
+      border-radius:999px;
+      font-size:.72rem;
+      text-transform:uppercase;
+      letter-spacing:.16em;
+      background:rgba(4,8,22,0.96);
+      border:1px solid rgba(255,255,255,0.26);
+    }
+
+    .hero-images-grid {
+      display:grid;
+      grid-template-columns:2fr 1.3fr;
+      gap:.8rem;
+      position:relative;
+      z-index:1;
+    }
+
+    .hero-img-main,
+    .hero-img-small {
+      border-radius:1.3rem;
+      overflow:hidden;
+      position:relative;
+      isolation:isolate;
+    }
+
+    .hero-img-main { height:250px; }
+    .hero-img-small { height:115px; }
+
+    .hero-img-main img,
+    .hero-img-small img {
+      width:100%; height:100%;
+      display:block;
+      object-fit:cover;
+      filter:contrast(1.08) saturate(1.05);
+      transform-origin:center;
+      transition:transform .8s ease-out;
+    }
+
+    .hero-img-main::after,
+    .hero-img-small::after {
+      content:"";
+      position:absolute; inset:0;
+      background:linear-gradient(to top, rgba(5,8,20,0.6), transparent);
+      mix-blend-mode:multiply;
+    }
+
+    .hero-card:hover .hero-img-main img { transform:scale(1.06); }
+    .hero-card:hover .hero-img-small img { transform:scale(1.08); }
+
+    .hero-floating {
+      position:absolute;
+      right:.7rem;
+      bottom:.6rem;
+      transform:translateY(10%);
+      width:60%;
+      border-radius:1.4rem;
+      background:rgba(4,8,22,0.97);
+      border:1px solid rgba(255,255,255,0.18);
+      padding:.85rem .95rem;
+      box-shadow:0 18px 40px rgba(0,0,0,0.98);
+      z-index:2;
+      animation:floatCard 7s ease-in-out infinite;
+    }
+
+    .floating-title { font-size:.88rem; margin-bottom:.25rem; }
+    .floating-sub { font-size:.74rem; color:var(--text-muted); margin-bottom:.6rem; }
+
+    .floating-row {
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:.45rem;
+    }
+
+    .floating-badge {
+      font-size:.7rem;
+      padding:.4rem .45rem;
+      border-radius:.9rem;
+      border:1px solid rgba(31,141,255,0.8);
+      background:radial-gradient(circle at top left,var(--accent-soft-blue),transparent 70%);
+    }
+
+    .floating-badge.alt {
+      border-color:rgba(20,194,163,0.8);
+      background:radial-gradient(circle at bottom right,var(--accent-soft-teal),transparent 70%);
+    }
+
+    /* SECTIONS */
+    section { padding:2.5rem 0 0; }
+
+    .section-header {
+      display:flex;
+      justify-content:space-between;
+      gap:1.2rem;
+      align-items:flex-end;
+      margin-bottom:1.9rem;
+    }
+
+    .section-kicker {
+      font-size:.76rem;
+      text-transform:uppercase;
+      letter-spacing:.2em;
+      color:var(--text-muted);
+    }
+
+    .section-title {
+      font-family:"Space Grotesk", sans-serif;
+      font-size:1.7rem;
+    }
+
+    .section-text {
+      font-size:.9rem;
+      color:var(--text-muted);
+      max-width:32rem;
+      line-height:1.6;
+    }
+
+    /* SERVICES */
+    .services-grid {
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:1.1rem;
+    }
+
+    .service-card {
+      border-radius:1.4rem;
+      padding:1.05rem 1rem 1.2rem;
+      border:1px solid var(--border-soft);
+      background:radial-gradient(circle at top, rgba(255,255,255,0.04), rgba(6,11,27,0.98));
+      box-shadow:0 16px 38px rgba(0,0,0,0.8);
+      cursor:pointer;
+      transition:
+        transform var(--transition-fast),
+        box-shadow var(--transition-fast),
+        border-color var(--transition-fast),
+        background var(--transition-fast);
+    }
+
+    .service-card:hover {
+      transform:translateY(-6px);
+      box-shadow:0 20px 46px rgba(0,0,0,0.98);
+      border-color:rgba(31,141,255,0.8);
+      background:radial-gradient(circle at bottom, rgba(20,194,163,0.22), rgba(6,11,27,1));
+    }
+
+    .service-icon {
+      width:28px; height:28px;
+      border-radius:999px;
+      background:
+        radial-gradient(circle at 0 0, var(--accent-blue), transparent 65%),
+        radial-gradient(circle at 100% 100%, var(--accent-teal), transparent 70%);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:1.2rem;
+      margin-bottom:.75rem;
+    }
+
+    .service-title { font-size:.96rem; margin-bottom:.3rem; }
+    .service-text { font-size:.82rem; color:var(--text-muted); margin-bottom:.8rem; }
+
+    .service-tag {
+      font-size:.72rem;
+      text-transform:uppercase;
+      letter-spacing:.17em;
+      color:rgba(214,224,244,0.96);
+    }
+
+    /* ABOUT */
+    .about-grid {
+      display:grid;
+      grid-template-columns:minmax(0,1.6fr) minmax(0,1.3fr);
+      gap:2.3rem;
+      align-items:center;
+    }
+
+    .about-card {
+      border-radius:var(--radius-xl);
+      padding:1.4rem 1.6rem 1.6rem;
+      border:1px solid var(--border-soft);
+      background:radial-gradient(circle at top left, rgba(255,255,255,0.06), rgba(6,11,26,0.98));
+      box-shadow:var(--shadow-strong);
+    }
+
+    .about-card h3 {
+      font-family:"Space Grotesk", sans-serif;
+      font-size:1.45rem;
+      margin-bottom:.7rem;
+    }
+
+    .about-card p {
+      font-size:.9rem;
+      color:var(--text-muted);
+      margin-bottom:1.05rem;
+      line-height:1.75;
+    }
+
+    .about-list {
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:.85rem;
+      font-size:.83rem;
+    }
+
+    .about-item {
+      display:flex;
+      align-items:flex-start;
+      gap:.5rem;
+    }
+
+    .about-dot {
+      width:18px; height:18px;
+      border-radius:999px;
+      background:var(--accent-soft-blue);
+      border:1px solid rgba(31,141,255,0.9);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:.78rem;
+    }
+
+    .about-aside {
+      border-radius:var(--radius-xl);
+      padding:1.2rem 1.4rem 1.3rem;
+      border:1px dashed rgba(255,255,255,0.24);
+      background:rgba(4,9,24,0.98);
+      font-size:.84rem;
+      color:var(--text-muted);
+    }
+
+    .about-aside strong { color:#f7fbff; }
+
+    .about-aside-row {
+      margin-top:.7rem;
+      display:flex;
+      flex-direction:column;
+      gap:.15rem;
+    }
+
+    .aside-label {
+      font-size:.74rem;
+      text-transform:uppercase;
+      letter-spacing:.18em;
+      color:rgba(212,223,244,0.95);
+    }
+
+    /* CONTACT */
+    .contact-section { margin-top:2.7rem; margin-bottom:3.3rem; }
+
+    .contact-card {
+      border-radius:var(--radius-xl);
+      padding:1.6rem 1.8rem 1.8rem;
+      border:1px solid rgba(31,141,255,0.8);
+      background:radial-gradient(circle at top, rgba(31,141,255,0.22), rgba(5,11,26,1));
+      box-shadow:0 18px 42px rgba(0,0,0,0.96);
+      display:grid;
+      grid-template-columns:minmax(0,1.7fr) minmax(0,1.3fr);
+      gap:2.1rem;
+      align-items:center;
+    }
+
+    .contact-card h3 {
+      font-family:"Space Grotesk", sans-serif;
+      font-size:1.45rem;
+      margin-bottom:.65rem;
+    }
+
+    .contact-card p { font-size:.9rem; margin-bottom:1.2rem; }
+
+    .contact-grid {
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:.95rem 1.6rem;
+      font-size:.86rem;
+    }
+
+    .info-label {
+      font-size:.76rem;
+      text-transform:uppercase;
+      letter-spacing:.17em;
+      color:rgba(20,47,92,0.96);
+    }
+
+    .info-value { font-size:.9rem; }
+
+    .info-value a {
+      color:#041427;
+      text-decoration:none;
+      border-bottom:1px solid rgba(4,20,39,0.3);
+    }
+
+    .info-value a:hover { border-color:rgba(4,20,39,0.85); }
+
+    .contact-hint {
+      border-radius:1.2rem;
+      padding:1rem 1.1rem;
+      background:rgba(4,9,24,0.98);
+      border:1px solid rgba(255,255,255,0.2);
+      font-size:.83rem;
+      color:var(--text-muted);
+    }
+
+    .contact-hint a {
+      color:var(--accent-teal);
+      text-decoration:none;
+    }
+
+    .contact-hint a:hover { text-decoration:underline; }
+
+    .contact-mini {
+      margin-top:.8rem;
+      padding-top:.7rem;
+      border-top:1px dashed rgba(255,255,255,0.18);
+      font-size:.78rem;
+    }
+
+    /* FOOTER */
+    footer {
+      border-top:1px solid rgba(255,255,255,0.1);
+      padding:1.6rem 0 2.1rem;
+      font-size:.78rem;
+      color:var(--text-muted);
+    }
+
+    .footer-row {
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:.9rem;
+      flex-wrap:wrap;
+    }
+
+    .footer-row a { color:var(--text-muted); text-decoration:none; }
+    .footer-row a:hover { color:var(--accent-teal); }
+
+    /* ANIMATIONS */
+    @keyframes floatCard {
+      0%,100% { transform:translateY(10%); }
+      50% { transform:translateY(3%); }
+    }
+
+    .reveal {
+      opacity:0;
+      transform:translateY(24px);
+      transition:opacity .7s ease-out, transform .7s ease-out;
+    }
+    .reveal.visible { opacity:1; transform:translateY(0); }
+
+    /* RESPONSIVE */
+    @media (max-width:960px) {
+      .hero-grid { grid-template-columns:minmax(0,1fr); }
+      .hero-visual { order:-1; }
+      .contact-card { grid-template-columns:minmax(0,1fr); }
+      .about-grid { grid-template-columns:minmax(0,1fr); }
+    }
+
+    @media (max-width:780px) {
+      .nav-links { display:none; }
+      .services-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+      .contact-grid { grid-template-columns:minmax(0,1fr); }
+    }
+
+    @media (max-width:560px) {
+      .services-grid { grid-template-columns:minmax(0,1fr); }
+      .hero-card { padding:.95rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-glow"></div>
+  <div class="bg-noise"></div>
+
+  <div class="page-wrapper">
+    <!-- HEADER -->
+    <header>
+      <div class="max-width">
+        <nav class="nav">
+          <div class="nav-brand">
+            <div class="nav-logo"><span>VR</span></div>
+            <div class="nav-text">
+              <div class="nav-title">SCI VERNEY RAINARD</div>
+              <div class="nav-subtitle">Immobilier d’entreprise · Limas</div>
+            </div>
+          </div>
+          <div class="nav-links">
+            <a href="#services">Services</a>
+            <a href="#about">Site & vision</a>
+            <a href="#contact">Contact</a>
+            <button class="nav-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+              Contacter <span>↗</span>
+            </button>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <!-- MAIN -->
+    <main class="max-width">
+      <!-- HERO -->
+      <section class="hero">
+        <div class="hero-grid">
+          <div class="hero-content reveal">
+            <div class="eyebrow">
+              <span class="eyebrow-dot"></span>
+              L’ESPACE MARTELET · 70 rue des Chantiers du Beaujolais · 69400 LIMAS
+            </div>
+            <h1 class="hero-title">
+              Des <span class="highlight">espaces professionnels</span>
+              pensés pour vos équipes et vos projets.
+            </h1>
+            <p class="hero-subtitle">
+              <strong>SCI VERNEY RAINARD</strong> loue et gère des bureaux et locaux
+              d’activité au cœur de <strong>Limas, Auvergne Rhône-Alpes</strong>.
+              Une adresse structurée, facile d’accès, pour installer ou développer
+              votre organisation dans la durée.
+            </p>
+
+            <div class="hero-tags">
+              <div class="tag-pill">
+                <span class="dot"></span> Bureaux & locaux d’activité
+              </div>
+              <div class="tag-pill">
+                <span class="dot"></span> Cadre professionnel & accessible
+              </div>
+              <div class="tag-pill">
+                <span class="dot"></span> Interlocuteur unique propriétaire-bailleur
+              </div>
+            </div>
+
+            <div class="hero-actions">
+              <button class="btn-primary" onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'})">
+                Voir les services
+                <span class="btn-icon">↗</span>
+              </button>
+              <button class="btn-ghost" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+                Discuter d’un besoin
+              </button>
+            </div>
+
+            <div class="hero-meta">
+              <div class="meta-block">
+                <span class="meta-label">Contact</span>
+                <span class="meta-value">
+                  <a href="mailto:hello@liventeo.shop">hello@liventeo.shop</a><br/>
+                  <a href="tel:+33671992518">+33 6 71 99 25 18</a>
+                </span>
+              </div>
+              <div class="meta-block">
+                <span class="meta-label">Adresse</span>
+                <span class="meta-value">
+                  L’ESPACE MARTELET<br/>
+                  70 RUE DES CHANTIERS DU BEAUJOLAIS<br/>
+                  69400 LIMAS · Auvergne Rhône-Alpes · France
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-visual reveal">
+            <div class="hero-card">
+              <div class="hero-chip">
+                Ensemble tertiaire · SCI VERNEY RAINARD
+              </div>
+
+              <div class="hero-images-grid">
+                <div class="hero-img-main">
+                  <img src="https://www.propertyfinder.ae/blog/wp-content/uploads/2023/06/shutterstock_2289737949-1-800x534.jpg" alt="Immeuble de bureaux moderne">
+                </div>
+                <div style="display:flex; flex-direction:column; gap:.8rem;">
+                  <div class="hero-img-small">
+                    <img src="https://i.insider.com/60ec8d82ca74780018ae8ef5?width=2000&format=jpeg&auto=webp" alt="Intérieur de bureaux avec espaces de travail">
+                  </div>
+                  <div class="hero-img-small">
+                    <img src="https://t4.ftcdn.net/jpg/05/79/18/63/360_F_579186326_xA2LcPdY2CmsWbzKyXhMnQbLhDbAKMEg.jpg" alt="Vue sur un parc d’activités et bâtiments">
+                  </div>
+                </div>
+              </div>
+
+              <div class="hero-floating">
+                <div class="floating-title">Un site pensé pour l’activité</div>
+                <div class="floating-sub">
+                  Locaux modulables, stationnement et environnement d’affaires structuré
+                  pour accueillir vos équipes.
+                </div>
+                <div class="floating-row">
+                  <div class="floating-badge">
+                    Bureaux & surfaces d’activité adaptés à différents profils d’entreprises.
+                  </div>
+                  <div class="floating-badge alt">
+                    Gestion immobilière suivie et interlocuteur dédié pour le site.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SERVICES -->
+      <section id="services">
+        <div class="section-header reveal">
+          <div>
+            <div class="section-kicker">Services SCI VERNEY RAINARD</div>
+            <h2 class="section-title">Un cadre immobilier pour vos opérations</h2>
+          </div>
+          <p class="section-text">
+            L’objectif&nbsp;: offrir un environnement de travail fiable, lisible et
+            bien situé, pour des entreprises qui cherchent à s’implanter ou à se
+            développer dans le Beaujolais et la métropole lyonnaise.
+          </p>
+        </div>
+
+        <div class="services-grid">
+          <article class="service-card reveal">
+            <div class="service-icon">🏢</div>
+            <h3 class="service-title">Location de bureaux</h3>
+            <p class="service-text">
+              Surfaces de bureaux adaptées aux PME, structures de services et équipes
+              support, dans un ensemble tertiaire structuré.
+            </p>
+            <div class="service-tag">Espaces tertiaires</div>
+          </article>
+
+          <article class="service-card reveal">
+            <div class="service-icon">📦</div>
+            <h3 class="service-title">Locaux d’activité</h3>
+            <p class="service-text">
+              Espaces pouvant accueillir stockage léger, ateliers ou activités
+              mixtes, selon configuration et besoins.
+            </p>
+            <div class="service-tag">Souplesse d’usage</div>
+          </article>
+
+          <article class="service-card reveal">
+            <div class="service-icon">🤝</div>
+            <h3 class="service-title">Relation bailleur directe</h3>
+            <p class="service-text">
+              Échanges simplifiés avec un interlocuteur unique pour les questions
+              de bail, de site ou d’évolution de vos besoins.
+            </p>
+            <div class="service-tag">Suivi & clarté</div>
+          </article>
+        </div>
+      </section>
+
+      <!-- ABOUT -->
+      <section id="about">
+        <div class="section-header reveal">
+          <div>
+            <div class="section-kicker">LIMAS · AUVERGNE RHÔNE-ALPES</div>
+            <h2 class="section-title">Un emplacement connecté au cœur du Beaujolais</h2>
+          </div>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-card reveal">
+            <h3>Un site pensé pour les entreprises</h3>
+            <p>
+              Située à <strong>L’ESPACE MARTELET, 70 rue des Chantiers du Beaujolais</strong>,
+              la SCI VERNEY RAINARD bénéficie d’un environnement professionnel organisé,
+              proche des axes routiers et des pôles économiques de la région lyonnaise.
+              Un choix pertinent pour installer durablement vos bureaux ou activités.
+            </p>
+            <div class="about-list">
+              <div class="about-item">
+                <div class="about-dot">✓</div>
+                <span>Site tertiaire et d’activités au sein d’un secteur déjà dynamique.</span>
+              </div>
+              <div class="about-item">
+                <div class="about-dot">✓</div>
+                <span>Accès facilité aux réseaux routiers et zones voisines.</span>
+              </div>
+              <div class="about-item">
+                <div class="about-dot">✓</div>
+                <span>Volumes et espaces modulables selon les besoins des occupants.</span>
+              </div>
+              <div class="about-item">
+                <div class="about-dot">✓</div>
+                <span>Gestion immobilière suivie, dans une logique de long terme.</span>
+              </div>
+            </div>
+          </div>
+
+          <aside class="about-aside reveal">
+            <strong>Repères SCI VERNEY RAINARD</strong>
+            <div class="about-aside-row">
+              <div class="aside-label">Adresse</div>
+              <div>
+                L’ESPACE MARTELET<br/>
+                70 RUE DES CHANTIERS DU BEAUJOLAIS<br/>
+                69400 LIMAS · Auvergne Rhône-Alpes · France
+              </div>
+            </div>
+            <div class="about-aside-row">
+              <div class="aside-label">Contact</div>
+              <div>
+                Email : <a href="mailto:hello@liventeo.shop">hello@liventeo.shop</a><br/>
+                Téléphone : <a href="tel:+33671992518">+33 6 71 99 25 18</a>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section id="contact" class="contact-section">
+        <div class="contact-card reveal">
+          <div>
+            <h3>Échanger sur un besoin immobilier</h3>
+            <p>
+              Vous recherchez des surfaces à Limas ou dans le secteur Beaujolais&nbsp;?
+              Vous souhaitez en savoir plus sur les disponibilités ou les typologies de
+              locaux possibles&nbsp;? Prenons contact.
+            </p>
+
+            <div class="contact-grid">
+              <div>
+                <div class="info-label">Email</div>
+                <div class="info-value">
+                  <a href="mailto:hello@liventeo.shop">hello@liventeo.shop</a>
+                </div>
+              </div>
+              <div>
+                <div class="info-label">Téléphone</div>
+                <div class="info-value">
+                  <a href="tel:+33671992518">+33 6 71 99 25 18</a>
+                </div>
+              </div>
+              <div>
+                <div class="info-label">Adresse</div>
+                <div class="info-value">
+                  L’ESPACE MARTELET<br/>
+                  70 RUE DES CHANTIERS DU BEAUJOLAIS<br/>
+                  69400 LIMAS · France
+                </div>
+              </div>
+              <div>
+                <div class="info-label">Types de projets</div>
+                <div class="info-value">
+                  Installation de bureaux, regroupement de services, locaux d’activité,
+                  besoins mixtes bureaux / stockage léger.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <div class="contact-hint">
+              📍 <strong>Localiser le site</strong><br/>
+              Ouvrez directement l’itinéraire vers L’ESPACE MARTELET à Limas :
+              <br/><br/>
+              <a href="https://www.google.com/maps/search/?api=1&query=70+RUE+DES+CHANTIERS+DU+BEAUJOLAIS+69400+LIMAS+FRANCE"
+                 target="_blank" rel="noopener">
+                Voir sur Google Maps
+              </a>
+              <div class="contact-mini">
+                Pour un premier échange efficace, pensez à préciser votre activité,
+                les surfaces recherchées et l’échéance de votre projet.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="max-width footer-row">
+        <span>© <span id="year"></span> SCI VERNEY RAINARD · Tous droits réservés.</span>
+        <span>Immobilier d’entreprise à Limas, pensé pour vos projets. 🏢</span>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // Année dynamique
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Effet de révélation au scroll
+    const revealEls = document.querySelectorAll(".reveal");
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.18 }
+    );
+    revealEls.forEach((el) => observer.observe(el));
+  </script>
+</body>
+</html>
